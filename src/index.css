@@ -22,7 +22,7 @@ a:hover {
   color: #535bf2;
 }
 
-/* 1. Garante que o HTML e o Body ocupem toda a altura */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -30,20 +30,11 @@ html, body {
 }
 
 body {
-  /* 2. Define a imagem de fundo */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('public/fundotela.png'); 
-  
-  /* 3. O SEGREDO: 'min-height' garante que o fundo tenha 
-     no mínimo a altura da tela, mas cresça se o conteúdo aumentar */
-  min-height: 100vh; 
-  
-  /* 4. Ajustes de exibição */
-  background-size: cover;      /* Cobre toda a área */
-  background-position: center;  /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Não deixa repetir */
-  background-attachment: fixed; /* Opcional: o fundo fica parado ao rolar */
-  
-  /* 5. Flexbox para centralizar seu card de cálculo (opcional) */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('/fundotela.png');
+  background-size: cover;   
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
   display: flex;
   flex-direction: column;
   align-items: center;
