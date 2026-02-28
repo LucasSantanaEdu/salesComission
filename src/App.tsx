@@ -98,8 +98,8 @@ function App() {
 
       {resultado && (
         <div style={{ marginTop: '30px', padding: '15px', border: '1px solid #ccc', borderRadius: '8px', backgroundColor: '#f9f9f9' }}>
-          <h3 style={{color:'red'}}>Resultados:</h3>
-          <p style={{ color: 'red' }}><strong>Salário em Folha (Bruto):</strong> - {formatarMoeda(resultado.salarioBruto)}</p>
+          <h3 style={{color:'blue'}}>Resultados:</h3>
+          <p style={{ color: 'green' }}><strong>Salário em Folha (Bruto):</strong> {formatarMoeda(resultado.salarioBruto)}</p>
           <hr />
           <p style={{ color: 'red' }}><strong>Desconto INSS:</strong> - {formatarMoeda(resultado.inss)}</p>
           {resultado.irrf > 0 && (
