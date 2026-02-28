@@ -32,33 +32,37 @@ function App() {
 
   return (
     <div className="container" style={{ padding: '20px', fontFamily: 'sans-serif', maxWidth: '400px', margin: '0 auto' }}>
-      <h2>Cálculo de Folha e Comissão</h2>
+      
+      <h2 style={{ color: 'white', textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+        Cálculo de Folha e Comissão
+      </h2>
       
       <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        <label>
+        
+        <label style={{ color: 'white', fontWeight: 'bold', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
           Valor Total Vendido:
           <input 
             type="text" 
             value={dados.valorVendido === 0 ? '' : formatarMoeda(dados.valorVendido)} 
             onChange={handleValorChange}
             placeholder="R$ 0,00"
-            style={{ width: '100%', padding: '10px', marginTop: '5px', fontSize: '16px' }}
+            style={{ width: '100%', padding: '10px', marginTop: '5px', fontSize: '16px', color: 'black' }}
           />
         </label>
 
-        <label>
+        <label style={{ color: 'white', fontWeight: 'bold', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
           Cargo:
           <select 
             value={dados.cargo} 
             onChange={e => setDados({...dados, cargo: e.target.value as 'balcao' | 'televendas'})}
-            style={{ width: '100%', padding: '10px', marginTop: '5px', fontSize: '16px' }}
+            style={{ width: '100%', padding: '10px', marginTop: '5px', fontSize: '16px', color: 'black' }}
           >
             <option value="balcao">Vendedor Balcão (Meta: 25k)</option>
             <option value="televendas">Vendedor Televendas (Meta: 35k)</option>
           </select>
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', fontWeight: 'bold', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
           <input 
             type="checkbox" 
             checked={dados.recebeVT} 
@@ -71,7 +75,7 @@ function App() {
           Recebe Vale Transporte (Desconto 6%)
         </label>
 
-        <label style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', fontWeight: 'bold', textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
           <input 
             type="checkbox" 
             checked={dados.recebeVR} 
@@ -86,7 +90,7 @@ function App() {
 
         <button 
           onClick={handleCalcular}
-          style={{ padding: '15px', backgroundColor: '#007BFF', color: 'white', border: 'none', borderRadius: '8px', fontSize: '18px', fontWeight: 'bold', cursor: 'pointer' }}
+          style={{ padding: '15px', backgroundColor: '#007BFF', color: 'white', border: 'none', borderRadius: '8px', fontSize: '18px', fontWeight: 'bold', cursor: 'pointer', marginTop: '10px' }}
         >
           Calcular
         </button>
@@ -119,7 +123,7 @@ function App() {
           <div style={{ marginTop: '10px', padding: '10px', backgroundColor: '#e6f2ff', border: '1px solid #005ce6', borderRadius: '5px' }}>
              <p style={{ margin: 0, fontSize: '16px', color: '#004080' }}>
               <strong>Ganho Total (Líquido + Espécie):</strong> <br/>
-              {formatarMoeda(resultado.valorTotalRecebido)}
+              {formatarMoeda(resultado.valorTotalRecebido || (resultado.salarioLiquido + resultado.comissaoDiaSeguinte))}
             </p>
           </div>
         </div>
