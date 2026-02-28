@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+⚙️ Como Inicializar o Projeto Localmente
+Para rodar o projeto na sua máquina, você precisará do Node.js instalado.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Clone o repositório:
 
-Currently, two official plugins are available:
+Bash
+git clone https://github.com/SEU_USUARIO/calc-salario.git
+2. Acesse o diretório do projeto:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Bash
+cd calc-salario
+3. Instale as dependências:
 
-## React Compiler
+Bash
+npm install
+4. Inicie o servidor de desenvolvimento:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Bash
+npm run dev
+O aplicativo estará disponível no seu navegador, geralmente em http://localhost:5173.
 
-## Expanding the ESLint configuration
+📱 Como Instalar no Celular (PWA)
+Como este projeto é um Progressive Web App, ele pode ser instalado como um aplicativo nativo:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Acesse o link de produção (deploy na Vercel) pelo navegador do seu smartphone.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Android (Chrome): Toque no aviso "Adicionar à tela inicial" que aparecerá na parte inferior, ou vá no menu (três pontos) e selecione a opção de instalação.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+iOS (Safari): Toque no ícone de "Compartilhar" na barra inferior e selecione "Adicionar à Tela de Início".
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🛠️ Scripts Disponíveis
+npm run dev: Inicia o servidor local com Hot Module Replacement (HMR).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+npm run build: Compila o projeto em TypeScript e gera os arquivos estáticos otimizados na pasta dist/.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm run preview: Simula o servidor de produção localmente servindo a pasta dist/.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Tecnologias Utilizadas
+React - Biblioteca principal para construção da interface.
+
+TypeScript - Tipagem estática para maior segurança e previsibilidade do código.
+
+Vite - Bundler ultrarrápido para desenvolvimento e build.
+
+Vite PWA Plugin - Configuração do Progressive Web App (Service Workers e Manifest).
+
+Vercel - Hospedagem e CI/CD automatizado
+
+O aplicativo processa duas vertentes financeiras do vendedor: o Salário em Folha (sujeito a impostos) e a Comissão do Dia Seguinte (paga em espécie por atingimento de meta).
+
+1. Salário em Folha (Bruto)
+Calculado sobre 2,25% do valor total vendido no mês.
+
+2. Descontos e Impostos
+Os descontos são aplicados estritamente sobre o Salário Bruto calculado:
+
+INSS: Cálculo progressivo por faixas salariais (7,5% a 14%, com teto máximo de R$ 8.475,55).
+
+IRRF: Isento até R$ 5.000,00. Acima deste valor, aplica-se a alíquota de 7,5%.
+
+Vale Transporte (Opcional): Desconto de 6%.
+
+Vale Refeição (Opcional): Desconto de 20%.
+
+3. Comissão do Dia Seguinte (Espécie)
+Valor extra pago fora da folha, baseado em metas por cargo:
+
+Vendedor Balcão: Meta de R$ 25.000,00.
+
+Vendedor Televendas: Meta de R$ 35.000,00.
+
+Cálculo: (Valor Total Vendido - Meta do Cargo) / 1000.
+
+Nota: Vendas abaixo da meta zeram esta comissão.
