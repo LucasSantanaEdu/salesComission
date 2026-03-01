@@ -128,6 +128,9 @@ function App() {
           </div>
         </div>
       )}
+      <footer style={{ marginTop: '40px', textAlign: 'center', color: 'white', fontSize: '14px', opacity: 0.8 }}>
+        <p>© {new Date().getFullYear()} - Desenvolvido por Lucas Eduardo | v1.0</p>
+      </footer>
     </div>
   );
 }
