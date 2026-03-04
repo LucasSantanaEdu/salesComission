@@ -27,14 +27,14 @@ export function calcularSalario(dados: DadosEntrada): ResultadoCalculo {
   }
 
   // 3. IRRF (Regra de Negócio: > 5000 aplica 7.5%)
-  const irrf = salarioBruto > 5000 ? salarioBruto * 0.075 : 0;
+  const irrf = (salarioBruto - inssTotal) > 5000 ? (salarioBruto - inssTotal) * 0.075 : 0;
 
   // 5. Benefícios
   const vt = recebeVT ? salarioBruto * 0.06 : 0;
   
-  // AJUSTE: Vale Refeição fixo de 800 reais com desconto de 21% sobre esse valor
+  //Vale Refeição fixo de 800 reais com desconto de 21% sobre esse valor
   const valorVRTotal = 800;
-  const vr = recebeVR ? valorVRTotal * 0.21 : 0; // Resultado: R$ 168,00
+  const vr = recebeVR ? valorVRTotal * 0.21 : 0; // Resultado: R$ 168,00 - validar
 
   // 6. Salário Líquido
   const salarioLiquido = salarioBruto - inssTotal - irrf - vt - vr;
