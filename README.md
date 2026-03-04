@@ -4,11 +4,11 @@ Para rodar o projeto na sua máquina, você precisará do Node.js instalado.
 1. Clone o repositório:
 
 Bash
-git clone https://github.com/SEU_USUARIO/calc-salario.git
+git clone https://github.com/SEU_USUARIO/salesComission.git
 2. Acesse o diretório do projeto:
 
 Bash
-cd calc-salario
+cd salesComission
 3. Instale as dependências:
 
 Bash
