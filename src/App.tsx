@@ -97,7 +97,7 @@ function App() {
       </div>
 
       {resultado && (
-        <div style={{ marginTop: '30px', padding: '15px', border: '1px solid #ccc', borderRadius: '8px', backgroundColor: '#f9f9f9' }}>
+        <div style={{ marginTop: '30px', padding: '15px', border: '1px solid #ccc', borderRadius: '8px', backgroundColor: '#ffffff', color: '#333' }}>
           <h3 style={{color:'blue'}}>Resultados:</h3>
           <p style={{ color: 'green' }}><strong>Salário em Folha (Bruto):</strong> {formatarMoeda(resultado.salarioBruto)}</p>
           <hr />

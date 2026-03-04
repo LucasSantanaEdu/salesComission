@@ -8,20 +8,20 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Calc Salário & Comissão',
-        short_name: 'CalcSalário',
+        name: 'Calculadora de Comissão Produced By Lucas Eduardo',
+        short_name: 'Calculadora comissão',
         description: 'Calculadora de folha e comissão do dia seguinte',
         theme_color: '#ffffff',
         background_color: '#ffffff',
-        display: 'standalone', // Isso faz abrir como app, sem barra de navegação
+        display: 'standalone', 
         icons: [
           {
-            src: '/icon-192x192.png', // Você precisará colocar uma imagem com esse nome na pasta 'public'
+            src: '/icon-192x192.png', 
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: '/icon-512x512.png', // O mesmo aqui, mas 512x512
+            src: '/icon-512x512.png',
             sizes: '512x512',
             type: 'image/png'
           }
